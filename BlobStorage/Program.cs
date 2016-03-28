@@ -63,7 +63,7 @@ namespace DataBlobStorageSample
         // 
         // *************************************************************************************************************************
         static void Main(string[] args)
-        {
+        {         
             Console.WriteLine("Azure Blob存储示例\n ");
 
             // 块blob基础
@@ -155,8 +155,9 @@ namespace DataBlobStorageSample
         {
             const string imageToUpload = "HelloWorld.png";
             string blockBlobContainerName = "demoblockblobcontainer-" + Guid.NewGuid();
-            string accountName = "sas";
-         
+            Console.WriteLine("请输入存储账号名：");
+            string accountName=Console.ReadLine(); 
+                    
             // 调用GetAccountSASToken 来获得基于存储账号、存储密匙的sasToken 
             string sasToken = GetAccountSASToken();
 
