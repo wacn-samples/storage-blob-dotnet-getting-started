@@ -30,11 +30,11 @@
 
 ## 参考文档
 
-- 什么是存储账号- [https://www.azure.cn/documentation/articles/storage-create-storage-account/](https://www.azure.cn/documentation/articles/storage-create-storage-account/)
-- Blobs起步 - [http://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/](http://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- Blob服务概念 - [https://msdn.microsoft.com/zh-cn/library/dd179376.aspx](https://msdn.microsoft.com/zh-cn/library/dd179376.aspx) 
-- Blob服务REST API - [http://msdn.microsoft.com/zh-cn/library/dd135733.aspx]([http://msdn.microsoft.com/zh-cn/library/dd135733.aspx)
-- Blob服务C# API - [http://go.microsoft.com/fwlink/?LinkID=398944](http://go.microsoft.com/fwlink/?LinkID=398944)
-- 使用共享访问签名(SAS)委托访问- [http://www.azure.cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/](http://www.azure.cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
-- 存储模拟器 - [https://www.azure.cn/documentation/articles/storage-use-emulator/](https://www.azure.cn/documentation/articles/storage-use-emulator/)
-使用 Async 和 Await异步编程  - [http://msdn.microsoft.com/zh-cn/library/hh191443.aspx](http://msdn.microsoft.com/zh-cn/library/hh191443.aspx)
+- [什么是存储账号](https://www.azure.cn/documentation/articles/storage-create-storage-account/)
+- [Blobs起步](http://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [Blob服务概念](https://msdn.microsoft.com/zh-cn/library/dd179376.aspx) 
+- [Blob服务REST API]([http://msdn.microsoft.com/zh-cn/library/dd135733.aspx)
+- [Blob服务C# API](http://go.microsoft.com/fwlink/?LinkID=398944)
+- [使用共享访问签名(SAS)委托访问](http://www.azure.cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
+- [存储模拟器](https://www.azure.cn/documentation/articles/storage-use-emulator/)
+- [使用 Async 和 Await异步编程](http://msdn.microsoft.com/zh-cn/library/hh191443.aspx)
