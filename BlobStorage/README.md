@@ -5,7 +5,7 @@
 
 ---
 
-# .NET中使用Azure Blob服务的起步
+# .NET中使用Azure Blob服务的起步 
 
 演示如何使用Blob存储服务，Blob存储主要是用来存储一些非结构化的数据，例如：文本、二进制数据、文档、媒体文件。Blobs能够通过HTTP或者HTTPS的方式被世界各地访问。
 
