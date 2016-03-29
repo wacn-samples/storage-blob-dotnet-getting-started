@@ -53,7 +53,7 @@ namespace DataBlobStorageSample
         // 的方式针对存储服务来使用。      
         // 
         // 使用Azure存储模拟器来运行这个示例  (默认选项)
-        //      1. 点击开始按钮或者是键盘的Windows键，然后输入“Azure Storage Emulator”来寻找Azure存储模拟器，然后点击运行。       
+        //      1. 点击开始按钮或者是键盘的Windows键，然后输入“Azure Storage Emulator”来寻找Azure存储模拟器，之后点击运行。       
         //      2. 设置断点，然后使用F10按钮运行这个示例. 
         // 
         // 使用Azure存储服务来运行这个示例
@@ -94,7 +94,7 @@ namespace DataBlobStorageSample
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-            // 创建一个客户端的blob来和blob服务交互。
+            // 创建一个blobClient来和blob服务交互。
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
             // 创建一个容器来组织存储账号下的blobs。
@@ -154,9 +154,7 @@ namespace DataBlobStorageSample
         private static async Task BasicStorageBlockBlobOperationsWithAccountSASAsync()
         {
             const string imageToUpload = "HelloWorld.png";
-            string blockBlobContainerName = "demoblockblobcontainer-" + Guid.NewGuid();
-            Console.WriteLine("请输入存储账号名：");
-            string accountName=Console.ReadLine(); 
+            string blockBlobContainerName = "demoblockblobcontainer-" + Guid.NewGuid();           
                     
             // 调用GetAccountSASToken 来获得基于存储账号、存储密匙的sasToken 
             string sasToken = GetAccountSASToken();
@@ -176,12 +174,8 @@ namespace DataBlobStorageSample
             // 通过传递存储账号和容器名来获得容器的Uri
             Uri ContainerUri = GetContainerSASUri(blockBlobContainerName);
 
-            // 通过使用Uri和sasToken来创建CloudBlobContainer
-            CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, accountName, "core.chinacloudapi.cn", true);
-            CloudBlobClient blobClient = accountWithSAS.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference(blockBlobContainerName);
-          
-           // CloudBlobContainer container = new CloudBlobContainer(ContainerUri, accountSAS);
+            // 通过使用Uri和sasToken来创建CloudBlobContainer    
+            CloudBlobContainer container = new CloudBlobContainer(ContainerUri, accountSAS);
             try
             {
                 await container.CreateIfNotExistsAsync();
@@ -303,7 +297,7 @@ namespace DataBlobStorageSample
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/ 
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-            return new Uri(storageAccount.BlobStorageUri.PrimaryUri.OriginalString + "/" + containerName);
+            return new Uri(storageAccount.BlobStorageUri.PrimaryUri.OriginalString + containerName);
         }
 
         /// <summary>
@@ -342,7 +336,7 @@ namespace DataBlobStorageSample
         /// 验证App.Config文件中的连接字符串，当使用者没有更新有效的值时抛出错误提示
         /// </summary>
         /// <param name="storageConnectionString">连接字符串</param>
-        /// <returns>CloudStorageAccount object</returns>
+        /// <returns>CloudStorageAccount 对象</returns>
         private static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
         {
             CloudStorageAccount storageAccount;
