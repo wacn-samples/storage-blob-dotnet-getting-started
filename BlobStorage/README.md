@@ -18,7 +18,7 @@
 使用Azure存储模拟器运行该示例
 
 1. 下载并安装Azure存储模拟器，下载地址： [https://www.azure.cn/downloads/](https://www.azure.cn/downloads/) 
-2. 点击开始按钮或者Windows键，然后输入"Azure Storage Emulator"找到存储模拟机，点击运行。
+2. 点击开始按钮或者Windows键，然后输入"Azure Storage Emulator"找到存储模拟器，点击运行。
 3. 设置断点，使用F10运行该示例。
 
 使用Azure存储服务来运行这个示例
