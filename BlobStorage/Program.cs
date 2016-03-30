@@ -31,7 +31,7 @@ namespace DataBlobStorageSample
     /// Blob存储主要是用来存储一些非结构化的数据，例如：文本、二进制数据、文档、媒体文件。
     /// Blobs能够通过HTTP或者HTTPS的方式被世界各地访问。
     ///
-    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用storage client libraries异步API调用存储服务。 在实际的应用中这种方式
+    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户库的异步API调用存储服务。 在实际的应用中这种方式
     /// 可以提高程序的响应速度。调用存储服务只要添加关键字await为前缀即可。
     ///
     /// 文档引用: 
@@ -90,7 +90,7 @@ namespace DataBlobStorageSample
             const string imageToUpload = "HelloWorld.png";
             string blockBlobContainerName = "demoblockblobcontainer-" + Guid.NewGuid();
 
-            // 通过连接字符串找到存储账号的信息
+            // 通过连接字符串检索存储账号的信息
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -132,7 +132,7 @@ namespace DataBlobStorageSample
                 Console.WriteLine("- {0} (类型: {1})", blob.Uri, blob.GetType());
             }
 
-            // 下载blob到你的文件系统
+            // 下载blob到您的文件系统
             Console.WriteLine("4. 下载Blob，下载地址：{0}", blockBlob.Uri.AbsoluteUri);
             await blockBlob.DownloadToFileAsync(string.Format("./CopyOf{0}", imageToUpload), FileMode.Create);
 
@@ -234,11 +234,11 @@ namespace DataBlobStorageSample
             const string PageBlobName = "samplepageblob";
             string pageBlobContainerName = "demopageblobcontainer-" + Guid.NewGuid();
 
-            // 通过连接字符串找到存储账号的信息
+            // 通过连接字符串检索存储账号的信息
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/           
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-            // 创建一个客户端的blob来和blob服务交互
+            // 创建一个blobClient来和blob服务交互
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
             // 创建一个容器来组织存储账号下的blobs。
@@ -293,7 +293,7 @@ namespace DataBlobStorageSample
         /// <returns>Uri</returns>
         private static Uri GetContainerSASUri(string containerName)
         {
-            // 通过连接字符串找到存储账号的信息
+            // 通过连接字符串检索存储账号的信息
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/ 
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -307,11 +307,11 @@ namespace DataBlobStorageSample
         /// <returns>sasToken</returns>
         private static string GetAccountSASToken()
         {
-            // 通过连接字符串找到存储账号的信息
+            // 通过连接字符串检索存储账号的信息
             // 如何配置 Azure 存储空间连接字符串 - https://www.azure.cn/documentation/articles/storage-configure-connection-string/ 
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-            // 使用下属属性为存储账号创建一个新的访问策略:
+            // 使用下述属性为存储账号创建一个新的访问策略:
             // Permissions: Read, Write, List, Create, Delete
             // ResourceType: Container
             // Expires in 24 hours
