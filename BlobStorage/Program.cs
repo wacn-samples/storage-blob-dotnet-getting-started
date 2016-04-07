@@ -29,17 +29,16 @@ namespace DataBlobStorageSample
     ////// <summary>
     /// Azure Blob存储的示例 - 演示如何使用Blob存储服务。
     /// Blob存储主要是用来存储一些非结构化的数据，例如：文本、二进制数据、文档、媒体文件。
-    /// Blobs能够通过HTTP或者HTTPS的方式被世界各地访问。
+    /// Blob能够通过HTTP或者HTTPS的方式从世界各地访问。
     ///
-    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户库的异步API调用存储服务。 在实际的应用中这种方式
-    /// 可以提高程序的响应速度。调用存储服务只要添加关键字await为前缀即可。
-    ///
+    /// 注意：这个示例使用.NET 4.5异步编程模型来演示如何使用存储客户端库的异步API调用存储服务。 在实际的应用中这种方式
+    /// 可以提高程序的响应速度。存储服务需要在调用时前面添加关键字await。
     /// 文档引用: 
     /// - 什么是存储账号- https://www.azure.cn/documentation/articles/storage-create-storage-account/
-    /// - Blobs起步 - http://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/
+    /// - Blob起步 - http://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/
     /// - Blob服务概念 - https://msdn.microsoft.com/zh-cn/library/dd179376.aspx 
     /// - Blob服务REST API - http://msdn.microsoft.com/zh-cn/library/dd135733.aspx
-    /// - Blob服务C# API - http://go.microsoft.com/fwlink/?LinkID=398944
+    /// - Blob服务C# API - https://msdn.microsoft.com/zh-cn/library/azure/mt347887.aspx
     /// - 使用共享访问签名(SAS)委托访问- http://www.azure.cn/documentation/articles/storage-dotnet-shared-access-signature-part-1/
     /// - 存储模拟器 - https://www.azure.cn/documentation/articles/storage-use-emulator/
     /// - 使用 Async 和 Await异步编程  - http://msdn.microsoft.com/zh-cn/library/hh191443.aspx
