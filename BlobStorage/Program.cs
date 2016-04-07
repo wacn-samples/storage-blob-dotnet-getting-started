@@ -96,7 +96,7 @@ namespace DataBlobStorageSample
             // 创建一个blobClient来和blob服务交互。
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            // 创建一个容器来组织存储账号下的blobs。
+            // 创建一个容器来组织存储账号下的blob。
             Console.WriteLine("1. 创建容器...");
             CloudBlobContainer container = blobClient.GetContainerReference(blockBlobContainerName);
             try
@@ -113,7 +113,7 @@ namespace DataBlobStorageSample
             // 我们有两个选择去查看已经上传的blob
             // 1) 使用共享访问签名(SAS)来委托访问资源。更多详细内容请阅读上面提供的关于SAS的文档。
             // 2) 公开容器下blobs的访问权限。取消下面代码的注释可以达到此目的。通过这样的设置我们可以使用下面的链接访问之前上传的图片
-            // https://[InsertYourStorageAccountNameHere].blob.core.chinacloudapi.cn/democontainer/HelloWorld.png
+            // https://[存储账号].blob.core.chinacloudapi.cn/democontainer/HelloWorld.png
 
             // await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
@@ -155,7 +155,7 @@ namespace DataBlobStorageSample
             const string imageToUpload = "HelloWorld.png";
             string blockBlobContainerName = "demoblockblobcontainer-" + Guid.NewGuid();           
                     
-            // 调用GetAccountSASToken 来获得基于存储账号、存储密匙的sasToken 
+            // 调用GetAccountSASToken 来获得基于存储账号、存储密钥的sasToken 
             string sasToken = GetAccountSASToken();
 
             // 通过SASToken创建AccountSAS
@@ -167,7 +167,7 @@ namespace DataBlobStorageSample
             Console.WriteLine("账户SAS的令牌: " + accountSAS.SASToken);
             Console.WriteLine();
 
-            // 创建一个容器来组织存储账号下的blobs
+            // 创建一个容器来组织存储账号下的blob
             Console.WriteLine("1. 使用账户SAS创建容器");
 
             // 通过传递存储账号和容器名来获得容器的Uri
@@ -190,7 +190,7 @@ namespace DataBlobStorageSample
             // 我们有两个选择去查看已经上传的blob
             // 1) 使用共享访问签名(SAS)来委托访问资源。更多详细内容请阅读上面提供的关于SAS的文档。
             // 2) 公开容器下blobs的访问权限。取消下面代码的注释可以达到此目的。通过这样的设置我们可以使用下面的链接访问之前上传的图片
-            // https://[InsertYourStorageAccountNameHere].blob.core.chinacloudapi.cn/democontainer/HelloWorld.png 
+            // https://[存储账号].blob.core.chinacloudapi.cn/democontainer/HelloWorld.png 
               
             // await container.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
@@ -199,7 +199,7 @@ namespace DataBlobStorageSample
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(imageToUpload);
             await blockBlob.UploadFromFileAsync(imageToUpload, FileMode.Open);
 
-            // 列出容器内所有的blobs
+            // 列出容器内所有的blob
             Console.WriteLine("3. 列出容器内所有的blobs");
             foreach (IListBlobItem blob in container.ListBlobs())
             {                
@@ -257,7 +257,7 @@ namespace DataBlobStorageSample
             random.NextBytes(samplePagedata);
             await pageBlob.UploadFromByteArrayAsync(samplePagedata, 0, samplePagedata.Length);
 
-            // 列出容器内的所有的blobs。因为一个容器包含很多的blobs，页blob的返回结果可能会包含多个段，每个段最大可能有5000个blobs。
+            // 列出容器内的所有的blobs。因为一个容器包含很多的blob，页blob的返回结果可能会包含多个段，每个段最大可能有5000个blob。
             // 你可以通过ListBlobsSegmentedAsync方法的参数maxResults定义一个更小的尺寸         
             Console.WriteLine("3. 列出容器内的Blobs");
             BlobContinuationToken token = null;
@@ -273,7 +273,7 @@ namespace DataBlobStorageSample
             } while (token != null);
 
             // 从页blob中读取数据
-            // Console.WriteLine("4. Read from a Page Blob");
+            // Console.WriteLine("4. 从页blob中读取数据");
             int bytesRead = await pageBlob.DownloadRangeToByteArrayAsync(samplePagedata, 0, 0, samplePagedata.Count());
 
             // 示例后的一些清除工作 
