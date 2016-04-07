@@ -48,17 +48,17 @@ namespace DataBlobStorageSample
     public class Program
     {
         // *************************************************************************************************************************
-        // 使用说明: 这个示例可以在Azure存储模拟器（存储模拟器是Azure SDK安装的一部分）上运行，或者通过修改App.Config文档中的存储账号和存储密钥
-        // 的方式针对存储服务来使用。      
+        // 使用说明: 这个示例可以在Azure存储模拟器（存储模拟器是Azure SDK安装的一部分）上运行，或者通过修改App.Config文档中的
+        // AccountName（存储账号）和Key（存储密钥）的方式来使用。 
         // 
         // 使用Azure存储模拟器来运行这个示例  (默认选项)
         //      1. 点击开始按钮或者是键盘的Windows键，然后输入“Azure Storage Emulator”来寻找Azure存储模拟器，之后点击运行。       
         //      2. 设置断点，然后使用F10按钮运行这个示例. 
         // 
         // 使用Azure存储服务来运行这个示例
-        //      1. 打来AppConfig文件然后使用第二个连接字符串。
-        //      2. 在Azure门户网站上创建存储账号，然后修改App.Config的存储账号和存储密钥。更多详细内容请阅读：https://www.azure.cn/documentation/articles/storage-dotnet-how-to-use-blobs/
-        //      3. 设置断点，然后使用F10按钮运行这个示例. 
+        // 1. 打开app.config文件, 注释掉模拟器的那一部分连接字符串(UseDevelopmentStorage=True) ，然后删掉存储服务的连接字符串的注释 (AccountName=[]...)。
+        // 2. 在Azure门户网站上创建存储账号，然后修改App.Config的 [AccountName]（存储账号）和 [AccountKey]（存储密钥）。
+        // 3. 设置断点，使用F10运行该示例。
         // 
         // *************************************************************************************************************************
         static void Main(string[] args)
